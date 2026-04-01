@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saloni Yadav | Certified Health Assistant & Wellness Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --navy: #0a2540;
+      --navy-mid: #133558;
+      --teal: #1a8ca0;
+      --teal-light: #2ab6ce;
+      --sage: #7aab8a;
+      --sage-light: #e8f5ec;
+      --cream: #faf9f6;
+      --warm-white: #ffffff;
+      --text-dark: #0a2540;
+      --text-mid: #3d5a74;
+      --text-light: #7a9ab0;
+      --border: #dde8f0;
+      --gold: #c9a96e;
+      --shadow-soft: 0 4px 32px rgba(10,37,64,0.08);
+      --shadow-card: 0 8px 40px rgba(10,37,64,0.12);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+    .section-header { margin-bottom: 56px; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-subtitle { margin: 0 auto; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(10,37,64,0.25);
+    }
+    .btn-primary:hover {
+      background: var(--teal);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(26,140,160,0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-teal {
+      background: var(--teal);
+      color: #fff;
+    }
+    .btn-teal:hover {
+      background: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      padding: 12px 0;
+      box-shadow: 0 2px 24px rgba(10,37,64,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo { display: flex; flex-direction: column; }
+    .nav-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .nav-logo-title {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      position: relative;
+      transition: var(--transition);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta { font-size: 0.85rem !important; padding: 10px 22px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    #home {
+      min-height: 100vh;
+      background: var(--navy);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(26,140,160,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(122,171,138,0.12) 0%, transparent 60%);
+    }
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 140px 0 80px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26,140,160,0.2);
+      border: 1px solid rgba(26,140,160,0.4);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 0.78rem;
+      color: var(--teal-light);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-badge i { font-size: 10px; }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero-title span { color: var(--teal-light); font-style: italic; }
+    .hero-quals {
+      font-size: 0.82rem;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+    }
+    .hero-stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 1px; }
+    .hero-image-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-image-frame {
+      width: 420px;
+      height: 520px;
+      border-radius: 200px 200px 160px 160px;
+      background: linear-gradient(160deg, rgba(26,140,160,0.3), rgba(10,37,64,0.6));
+      border: 1px solid rgba(26,140,160,0.3);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .hero-image-placeholder i {
+      font-size: 6rem;
+      color: rgba(255,255,255,0.15);
+    }
+    .hero-image-placeholder p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .hero-float-card {
+      position: absolute;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-card);
+    }
+    .hero-float-card.card-1 { bottom: 60px; left: -40px; }
+    .hero-float-card.card-2 { top: 80px; right: -30px; }
+    .float-card-label { font-size: 0.7rem; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase; }
+    .float-card-value { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--navy); }
+    .float-card-icon {
+      width: 36px; height: 36px;
+      background: var(--sage-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 8px;
+    }
+    .float-card-icon i { color: var(--sage); font-size: 15px; }
+    .hero-decor {
+      position: absolute;
+      width: 180px; height: 180px;
+      border: 1px solid rgba(26,140,160,0.15);
+      border-radius: 50%;
+      top: 20px; right: -60px;
+    }
+    .hero-decor::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(26,140,160,0.1);
+      border-radius: 50%;
+    }
+
+    #about {
+      padding: 100px 0;
+      background: var(--warm-white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-image-col { position: relative; }
+    .about-img-wrap {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 120px 120px 80px 80px;
+      background: linear-gradient(145deg, var(--sage-light), #d4ede0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* IMPORTANT */
+  object-position: center;
+}
+    .about-img-placeholder { text-align: center; }
+    .about-img-placeholder i { font-size: 5rem; color: var(--sage); opacity: 0.4; }
+    .about-img-placeholder p { font-size: 0.8rem; color: var(--sage); margin-top: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+    .about-accent-box {
+      position: absolute;
+      bottom: -24px; right: -24px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 28px;
+      width: 180px;
+    }
+    .accent-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; color: var(--teal-light); line-height: 1; }
+    .accent-label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+    .about-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .about-body { font-size: 0.95rem; color: var(--text-mid); margin-bottom: 32px; }
+    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .value-item { display: flex; align-items: flex-start; gap: 12px; }
+    .value-icon {
+      width: 40px; height: 40px;
+      background: var(--sage-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .value-icon i { color: var(--sage); font-size: 15px; }
+    .value-text h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+    .value-text p { font-size: 0.8rem; color: var(--text-light); margin-top: 2px; }
+
+    #experience {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal), var(--sage), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.6s ease;
+    }
+    .timeline-item.visible { opacity: 1; transform: translateX(0); }
+    .timeline-dot {
+      position: absolute;
+      left: -34px; top: 8px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 3px solid var(--cream);
+      box-shadow: 0 0 0 3px var(--teal);
+    }
+    .timeline-card {
+      background: var(--warm-white);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .timeline-card:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-4px);
+    }
+    .timeline-period {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(26,140,160,0.1);
+      color: var(--teal);
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .timeline-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .timeline-org {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .timeline-org i { margin-right: 6px; }
+    .timeline-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.8; }
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag {
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      background: var(--sage-light);
+      color: var(--sage);
+      border-radius: 50px;
+      font-weight: 500;
+    }
+
+    #education {
+      padding: 100px 0;
+      background: var(--navy);
+    }
+    #education .section-title { color: #fff; }
+    #education .section-label { color: var(--teal-light); }
+    #education .section-subtitle { color: rgba(255,255,255,0.55); }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .edu-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--sage));
+    }
+    .edu-card:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .edu-icon {
+      width: 52px; height: 52px;
+      background: rgba(26,140,160,0.2);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .edu-icon i { color: var(--teal-light); font-size: 20px; }
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .edu-inst { font-size: 0.88rem; color: var(--teal-light); font-weight: 500; margin-bottom: 8px; }
+    .edu-year { font-size: 0.78rem; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
+    .edu-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 12px; line-height: 1.7; }
+    .certs-section { margin-top: 64px; }
+    .cert-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .cert-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      transition: var(--transition);
+    }
+    .cert-chip i { color: var(--gold); }
+    .cert-chip:hover { background: rgba(255,255,255,0.12); }
+
+    #services {
+      padding: 100px 0;
+      background: var(--warm-white);
+    }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .service-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 0;
+      background: linear-gradient(135deg, var(--teal), var(--navy));
+      transition: var(--transition);
+      z-index: 0;
+    }
+    .service-card:hover::after { height: 100%; }
+    .service-card > * { position: relative; z-index: 1; transition: var(--transition); }
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-card); }
+    .service-card:hover .service-icon { background: rgba(255,255,255,0.15); }
+    .service-card:hover .service-icon i { color: #fff; }
+    .service-card:hover .service-name { color: #fff; }
+    .service-card:hover .service-desc { color: rgba(255,255,255,0.75); }
+    .service-card:hover .service-list li { color: rgba(255,255,255,0.65); }
+    .service-card:hover .service-list li::before { background: rgba(255,255,255,0.4); }
+    .service-icon {
+      width: 60px; height: 60px;
+      background: var(--sage-light);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+    .service-icon i { font-size: 22px; color: var(--sage); transition: var(--transition); }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .service-desc { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 20px; line-height: 1.7; }
+    .service-list { display: flex; flex-direction: column; gap: 8px; }
+    .service-list li {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      padding-left: 16px;
+      position: relative;
+    }
+    .service-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 6px; height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    #blog {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+    .blog-card {
+      background: var(--warm-white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .blog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-card); }
+    .blog-img {
+      height: 200px;
+      background: linear-gradient(135deg, var(--sage-light), #c8e6d4);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-img i { font-size: 3.5rem; color: var(--sage); opacity: 0.4; }
+    .blog-cat {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 5px 12px;
+      border-radius: 50px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .blog-body { padding: 28px; }
+    .blog-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .blog-date { font-size: 0.78rem; color: var(--text-light); }
+    .blog-read { font-size: 0.78rem; color: var(--text-light); }
+    .blog-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .blog-preview { font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+    .blog-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal);
+      transition: var(--transition);
+    }
+    .blog-read-more:hover { gap: 10px; }
+
+    #testimonials {
+      padding: 100px 0;
+      background: var(--warm-white);
+    }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .testimonial-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+    }
+    .testimonial-card:hover { box-shadow: var(--shadow-card); transform: translateY(-4px); }
+    .testimonial-quote {
+      font-size: 3rem;
+      color: var(--teal);
+      opacity: 0.3;
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .testimonial-footer { display: flex; align-items: center; gap: 14px; }
+    .testimonial-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .testimonial-avatar span { color: #fff; font-weight: 600; font-size: 1rem; }
+    .testimonial-name { font-weight: 600; color: var(--navy); font-size: 0.9rem; }
+    .testimonial-role { font-size: 0.78rem; color: var(--text-light); }
+    .stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; margin-top: 4px; }
+
+    #contact {
+      padding: 100px 0;
+      background: var(--navy);
+    }
+    #contact .section-title { color: #fff; }
+    #contact .section-label { color: var(--teal-light); }
+    #contact .section-subtitle { color: rgba(255,255,255,0.55); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; }
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+    .contact-info-item { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-info-icon {
+      width: 48px; height: 48px;
+      background: rgba(26,140,160,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-info-icon i { color: var(--teal-light); font-size: 16px; }
+    .contact-info-label { font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; }
+    .contact-info-val { font-size: 0.92rem; color: rgba(255,255,255,0.8); margin-top: 4px; }
+    .contact-form-wrap {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 8px; letter-spacing: 0.5px; }
+    .form-input, .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: #fff;
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--teal);
+      background: rgba(255,255,255,0.09);
+      box-shadow: 0 0 0 3px rgba(26,140,160,0.2);
+    }
+    .form-textarea { resize: vertical; min-height: 130px; }
+    .form-success { display: none; text-align: center; padding: 20px; }
+    .form-success i { font-size: 2rem; color: var(--sage); }
+    .form-success p { color: rgba(255,255,255,0.8); margin-top: 12px; }
+
+    footer { background: #06182e; padding: 48px 0 28px; }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    .footer-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-top: 8px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-link {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5);
+      transition: var(--transition);
+    }
+    .social-link:hover { background: var(--teal); color: #fff; }
+    .footer-col-title { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.8); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.4); transition: var(--transition); }
+    .footer-links a:hover { color: var(--teal-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+    .footer-credit { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--navy);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      transition: var(--transition);
+    }
+    .mobile-nav a:hover { color: var(--teal-light); }
+    .mobile-nav-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner { gap: 48px; }
+      .hero-image-frame { width: 340px; height: 420px; }
+      .about-grid { gap: 48px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 120px 0 60px; text-align: center; }
+      .hero-image-wrap { order: -1; }
+      .hero-image-frame { width: 280px; height: 340px; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-float-card { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image-col { max-width: 340px; margin: 0 auto; }
+      .about-values { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .hero-stats { flex-direction: column; gap: 20px; }
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--sage));
+      z-index: 9999;
+      transition: width 0.1s;
+    }
+    #back-top {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      width: 48px; height: 48px;
+      background: var(--teal);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+      z-index: 500;
+      box-shadow: 0 4px 20px rgba(26,140,160,0.4);
+    }
+    #back-top.show { opacity: 1; transform: translateY(0); }
+    #back-top:hover { background: var(--navy); transform: translateY(-4px); }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<div id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+
+<nav class="mobile-nav" id="mobileNav">
+  <span class="mobile-nav-close" id="closeNav"><i class="fas fa-times"></i></span>
+  <a href="#home" onclick="closeMobileNav()">Home</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#experience" onclick="closeMobileNav()">Experience</a>
+  <a href="#education" onclick="closeMobileNav()">Education</a>
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#blog" onclick="closeMobileNav()">Blog</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+</nav>
+
+<!-- NAVBAR -->
+<header id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="nav-logo-name">Saloni Yadav</span>
+        <span class="nav-logo-title">Certified Health Assistant · Wellness Advisor</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact" class="btn btn-primary nav-cta">Book Session</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-circle"></i> Available for Health Sessions</div>
+        <div class="hero-quals">CHA · CHW · Wellness & Patient Care Specialist</div>
+        <h1 class="hero-title">Saloni<br><span>Yadav</span></h1>
+        <p class="hero-tagline">"Guiding You Towards<br>Healthier, Happier Living"</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book a Session</a>
+          <a href="#contact" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.35);">Contact Me</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">2+</div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">500+</div>
+            <div class="hero-stat-label">Clients Supported</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">4+</div>
+            <div class="hero-stat-label">Certifications</div>
+          </div>
+        </div>
+      </div>
+     <div class="hero-image-wrap">
+
+  <div class="hero-image-frame">
+    <img src="muskan.jpeg" class="hero-img" />
+  </div>
+
+  <!-- OUTSIDE CARDS -->
+  <div class="hero-float-card card-1">
+    <div class="float-card-icon"><i class="fas fa-heart-pulse"></i></div>
+    <div class="float-card-label">Specialty</div>
+    <div class="float-card-value">Wellness</div>
+  </div>
+
+  <div class="hero-float-card card-2">
+    <div class="float-card-icon"><i class="fas fa-star"></i></div>
+    <div class="float-card-label">Rating</div>
+    <div class="float-card-value">4.9 / 5</div>
+  </div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-col">
+        <div class="about-img-wrap">
+          <div class="about-img-placeholder">
+            <i class="fas fa-user-nurse"></i>
+            <p>Professional Photo</p>
+          </div>
+        </div>
+        <div class="about-accent-box">
+          <div class="accent-num">2+</div>
+          <div class="accent-label">Years of dedicated health assistance</div>
+        </div>
+      </div>
+      <div class="about-content fade-up">
+        <span class="section-label">About Saloni</span>
+        <h2 class="section-title">A Health Assistant Driven<br>by Care & Commitment</h2>
+        <p class="about-intro">"Every individual deserves clear health guidance, compassionate support, and the tools to take charge of their own wellbeing."</p>
+        <p class="about-body">Saloni Yadav is a certified health assistant and wellness advisor with over 3 years of experience supporting patients and communities across healthcare settings in West Bengal. Her work spans patient care coordination, health education, chronic disease support, and preventive wellness.</p>
+        <p class="about-body" style="margin-top: 12px;">With a warm, approachable style and a commitment to health literacy, Saloni bridges the gap between clinical care and everyday healthy living. She is known for her patient advocacy, her clear communication of medical guidance, and her passion for empowering people with the knowledge to make informed health choices.</p>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-heart"></i></div>
+            <div class="value-text">
+              <h4>Patient-Centred Care</h4>
+              <p>Every client is heard, respected, and supported.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-book-open-reader"></i></div>
+            <div class="value-text">
+              <h4>Health Education</h4>
+              <p>Empowering people with knowledge to live better.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="value-text">
+              <h4>Safe & Ethical Practice</h4>
+              <p>Always working within professional boundaries.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="value-text">
+              <h4>Continuous Learning</h4>
+              <p>Staying current with best practices in health care.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Career Journey</span>
+      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-subtitle">Three years of hands-on experience across hospitals, clinics, and community health programmes.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-period"><i class="fas fa-calendar"></i> 2023 – 2024</div>
+          <h3 class="timeline-role">Health Assistant — Patient Care & Coordination</h3>
+          <div class="timeline-org"><i class="fas fa-hospital"></i> Narayani Hospital, Birgunj</div>
+          <p class="timeline-desc">Supporting clinical teams in patient intake, health monitoring, and care coordination across OPD and ward settings. Delivering structured health education sessions, assisting with vitals recording, and acting as a primary point of contact between patients and the care team. Consistently achieving patient satisfaction scores above 95%.</p>
+          <div class="timeline-tags">
+            <span class="tag">Patient Coordination</span>
+            <span class="tag">Health Monitoring</span>
+            <span class="tag">Health Education</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-period"><i class="fas fa-calendar"></i> 2024 – 2025</div>
+          <h3 class="timeline-role">Health & Wellness Assistant</h3>
+          <div class="timeline-org"><i class="fas fa-hospital"></i> Hetauda Hospitals, Hetauda</div>
+          <p class="timeline-desc">Assisted doctors and nursing staff in daily clinical workflows. Led patient wellness orientation programmes for newly admitted patients. Introduced a structured follow-up tracking system that improved appointment adherence by 22%. Provided counselling support for patients managing who has met with an accident .</p>
+          <div class="timeline-tags">
+            <span class="tag">Chronic Disease Support</span>
+            <span class="tag">Follow-up Coordination</span>
+            <span class="tag">Wellness Programmes</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-period"><i class="fas fa-calendar"></i> 2016 – 2018</div>
+          <h3 class="timeline-role">On the Job Training </h3>
+          <div class="timeline-org"><i class="fas fa-clinic-medical"></i> Nijgadh Hospital</div>
+          <p class="timeline-desc">Conducted door-to-door health screenings and awareness drives in underserved communities. Facilitated immunisation campaigns, maternal health workshops, and nutrition counselling. Helped connect over 150 families to essential government health schemes and primary care services.</p>
+          <div class="timeline-tags">
+            <span class="tag">Community Outreach</span>
+            <span class="tag">Maternal Health</span>
+            <span class="tag">Health Screening</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-period"><i class="fas fa-calendar"></i> 2015 – 2016</div>
+          <h3 class="timeline-role">Health Assistant Trainee</h3>
+          <div class="timeline-org"><i class="fas fa-clinic-medical"></i> Narayani Hospital</div>
+          <p class="timeline-desc">Completed supervised practical training in clinical support, basic first aid, patient record management, and health triage assistance. Recognised for excellent communication skills and a caring approach to patient interactions during the training period.</p>
+          <div class="timeline-tags">
+            <span class="tag">Clinical Support</span>
+            <span class="tag">First Aid</span>
+            <span class="tag">Patient Records</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Academic Background</span>
+      <h2 class="section-title">Education & Credentials</h2>
+      <p class="section-subtitle">A strong foundation in health sciences, patient care, and wellness built through formal training and ongoing development.</p>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card fade-up">
+        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3 class="edu-degree">Diploma in Health Assistant Studies</h3>
+        <div class="edu-inst">Himal Institute of Health Science , Birgunj Nepal</div>
+        <div class="edu-year">2022-23 – 2025 · Distinction</div>
+        <p class="edu-desc">Three-year diploma covering anatomy, physiology, community health, patient care techniques, health record management, and preventive healthcare practices. Completed with distinction.</p>
+      </div>
+     
+      <div class="edu-card fade-up">
+        <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+        <h3 class="edu-degree">Certificate in Wellness Coaching</h3>
+        <div class="edu-inst">National Institute of Nutrition & Wellness, Hyderabad</div>
+        <div class="edu-year">2025 · 6-Month Certification</div>
+        <p class="edu-desc">Specialised training in lifestyle medicine, behaviour change counselling, stress management techniques, sleep health, and personalised wellness planning for individuals with chronic conditions.</p>
+      </div>
+    </div>
+    <div class="certs-section">
+      <span class="section-label">Certifications & Achievements</span>
+      <div class="cert-list">
+        <div class="cert-chip"><i class="fas fa-award"></i> Certified Health Assistant (CHA)</div>
+        <div class="cert-chip"><i class="fas fa-certificate"></i> Certified Health Worker (CHW) — WHO</div>
+        <!-- <div class="cert-chip"><i class="fas fa-trophy"></i> Best Trainee Award, ESI 2016</div> -->
+        <div class="cert-chip"><i class="fas fa-medal"></i> Basic Life Support (BLS) Certified</div>
+        <div class="cert-chip"><i class="fas fa-star"></i> Diabetes Care & Education Specialist</div>
+        <!-- <div class="cert-chip"><i class="fas fa-book-open"></i> Published: 2 Community Health Articles</div> -->
+        <!-- <div class="cert-chip"><i class="fas fa-chalkboard-teacher"></i> Speaker — 4 State Health Conferences</div> -->
+        <div class="cert-chip"><i class="fas fa-handshake"></i> Member — Nepali Association of Health Workers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">What I Offer</span>
+      <h2 class="section-title">Areas of Expertise</h2>
+      <p class="section-subtitle">Comprehensive health assistance and wellness support delivered with care, clarity, and a personal touch.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-notes-medical"></i></div>
+        <h3 class="service-name">Patient Care Assistance</h3>
+        <p class="service-desc">Hands-on support for patients navigating hospital and clinic environments, ensuring comfort, safety, and clear communication at every step.</p>
+        <ul class="service-list">
+          <li>Vitals monitoring & recording</li>
+          <li>Patient intake & orientation</li>
+          <li>Pre & post-procedure support</li>
+          <li>Medication reminders & tracking</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-heart-circle-check"></i></div>
+        <h3 class="service-name">Chronic Disease Management</h3>
+        <p class="service-desc">Supportive guidance for individuals managing long-term conditions, helping them build sustainable healthy habits and stay on track with care plans.</p>
+        <ul class="service-list">
+          <li>Diabetes self-management support</li>
+          <li>Hypertension lifestyle guidance</li>
+          <li>Weight management counselling</li>
+          <li>Routine health check-up assistance</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-apple-whole"></i></div>
+        <h3 class="service-name">Nutrition & Wellness Coaching</h3>
+        <p class="service-desc">Personalised wellness plans incorporating balanced nutrition, physical activity, and lifestyle adjustments to promote long-term health and energy.</p>
+        <ul class="service-list">
+          <li>Personalised meal guidance</li>
+          <li>Healthy eating habit building</li>
+          <li>Wellness goal setting</li>
+          <li>Stress & sleep management tips</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-person-breastfeeding"></i></div>
+        <h3 class="service-name">Maternal & Child Health Support</h3>
+        <p class="service-desc">Supportive care and health education for mothers and young children, covering antenatal care guidance, postnatal wellness, and infant health basics.</p>
+        <ul class="service-list">
+          <li>Antenatal care guidance</li>
+          <li>Postnatal wellness support</li>
+          <li>Breastfeeding & infant nutrition</li>
+          <li>Child immunisation awareness</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-shield-virus"></i></div>
+        <h3 class="service-name">Preventive Health & Screenings</h3>
+        <p class="service-desc">Proactive health education and screening support to help individuals detect risks early and adopt preventive measures before conditions develop.</p>
+        <ul class="service-list">
+          <li>Routine health screening guidance</li>
+          <li>Cancer awareness education</li>
+          <li>Vaccination schedule support</li>
+          <li>Health risk assessment assistance</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fas fa-users"></i></div>
+        <h3 class="service-name">Community & Home Health Support</h3>
+        <p class="service-desc">Outreach and home-based assistance for families and communities, bringing health education, basic assessments, and care coordination to those who need it most.</p>
+        <ul class="service-list">
+          <li>Home health visits</li>
+          <li>Health awareness workshops</li>
+          <li>Care navigation for elderly</li>
+          <li>Government health scheme linkage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Health Insights</span>
+      <h2 class="section-title">Articles & Wellness Tips</h2>
+      <p class="section-subtitle">Practical health guidance, everyday wellness tips, and care advice written for everyone — clear, simple, and actionable.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card fade-up">
+        <div class="blog-img">
+          <i class="fas fa-apple-whole"></i>
+          <span class="blog-cat">Nutrition</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-date"><i class="far fa-calendar" style="margin-right:4px"></i>March 10, 2025</span>
+            <span class="blog-read"><i class="fas fa-clock" style="margin-right:4px"></i>5 min read</span>
+          </div>
+          <h3 class="blog-title">10 Simple Nutrition Habits That Make a Real Difference to Your Health</h3>
+          <p class="blog-preview">You don't need a complicated diet plan to eat well. Saloni shares ten easy, evidence-backed nutrition habits that anyone can start today to feel better and live healthier.</p>
+          <a href="#" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-img" style="background: linear-gradient(135deg, #fce8e8, #f9d0d0);">
+          <i class="fas fa-heart-pulse" style="color: #c96a6a;"></i>
+          <span class="blog-cat">Chronic Disease</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-date"><i class="far fa-calendar" style="margin-right:4px"></i>February 20, 2025</span>
+            <span class="blog-read"><i class="fas fa-clock" style="margin-right:4px"></i>6 min read</span>
+          </div>
+          <h3 class="blog-title">Living Well with Diabetes: Everyday Habits to Keep Your Blood Sugar Stable</h3>
+          <p class="blog-preview">Managing diabetes doesn't have to be overwhelming. Saloni breaks down the daily lifestyle choices — from meals to movement to sleep — that make the biggest difference in blood sugar control.</p>
+          <a href="#" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-img" style="background: linear-gradient(135deg, #e8f0fe, #c5d5f9);">
+          <i class="fas fa-shield-heart" style="color: #4a6fa5;"></i>
+          <span class="blog-cat">Preventive Care</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-date"><i class="far fa-calendar" style="margin-right:4px"></i>January 8, 2025</span>
+            <span class="blog-read"><i class="fas fa-clock" style="margin-right:4px"></i>4 min read</span>
+          </div>
+          <h3 class="blog-title">Health Screenings You Shouldn't Skip — A Simple Guide by Age Group</h3>
+          <p class="blog-preview">Preventive screenings are your first line of defence. Saloni outlines the key health checks recommended for different age groups, and explains why catching problems early always makes care easier.</p>
+          <a href="#" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Client Voices</span>
+      <h2 class="section-title">What Clients Say</h2>
+      <p class="section-subtitle">Real feedback from the individuals and families Saloni has had the privilege of supporting.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Saloni helped me understand my diabetes diagnosis in a way no one had ever done before. She gave me a practical plan I could actually follow, and for the first time I felt confident managing my own health. Her patience and encouragement made all the difference.</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar"><span>R</span></div>
+          <div>
+            <div class="testimonial-name">Madhu Yadav</div>
+            <div class="testimonial-role">Client — Diabetes Management Support</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">During my pregnancy I was anxious and confused about so many things. Saloni was always available to answer my questions, explain what to expect at each stage, and guide me to the right care. She felt like a trusted friend throughout the whole journey.</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--sage), #3d8a55);"><span>P</span></div>
+          <div>
+            <div class="testimonial-name">Chandani</div>
+            <div class="testimonial-role">Client — Maternal Health Support</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">My elderly mother needed regular health monitoring at home after her surgery. Saloni visited us consistently, kept her vitals in check, coordinated with her doctor, and kept our whole family calm and informed. We cannot thank her enough for that care.</p>
+        <div class="testimonial-footer">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--gold), #b08030);"><span>A</span></div>
+          <div>
+            <div class="testimonial-name">Amisha</div>
+            <div class="testimonial-role">Family — Home Health Support</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Book a Health Session</h2>
+      <p class="section-subtitle">Reach out to schedule a wellness consultation, patient care session, or simply ask any health-related questions.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-location-dot"></i></div>
+          <div>
+            <div class="contact-info-label">Office Address</div>
+            <div class="contact-info-val">Prabhu Hospitals, Panitanki Road,<br>Birgunj, Parsa, Nepal — 43000, Province-2 Nepal</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="contact-info-label">Phone / WhatsApp</div>
+            <div class="contact-info-val">+977 9762275151</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-val">saloni9762275151@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <div class="contact-info-label">Session Hours</div>
+            <div class="contact-info-val">Mon – Sat: 9:00 AM – 5:00 PM<br>Sun: Available by prior appointment</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-video"></i></div>
+          <div>
+            <div class="contact-info-label">Online Sessions</div>
+            <div class="contact-info-val">Virtual health consultations available via video call. Book through the form.</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" class="form-input" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-input" placeholder="+977 XXXXX XXXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" placeholder="your@gmail.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Type of Support Needed</label>
+            <input type="text" class="form-input" placeholder="e.g. Wellness coaching, Diabetes support, Home visit...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Message *</label>
+            <textarea class="form-textarea" placeholder="Please describe your health concern or what you'd like support with..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-teal" style="width:100%; justify-content:center; padding:16px;">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-circle-check"></i>
+            <p>Thank you! Your message has been sent. Saloni's team will reach out within 24 hours.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-name">Saloni Yadav</div>
+        <p class="footer-tagline">CHA · CHW · Certified Health Assistant & Wellness Advisor<br>Guiding You Towards Healthier, Happier Living</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About Me</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="#services">Patient Care</a>
+          <a href="#services">Wellness Coaching</a>
+          <a href="#services">Chronic Disease Support</a>
+          <a href="#services">Community Health</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <div class="footer-links">
+          <a href="#blog">Health Articles</a>
+          <a href="#testimonials">Client Reviews</a>
+          <a href="#contact">Book a Session</a>
+          <a href="#contact">Online Consultation</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Saloni Yadav. All rights reserved. | Reg. No. B-27237 Med GM</p>
+      <p class="footer-credit">Designed with <i class="fas fa-heart" style="color: var(--teal);"></i> for better health outcomes</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
+
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    progressBar.style.width = (scrollTop / scrollHeight * 100) + '%';
+  });
+
+  const backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', () => { backTop.classList.toggle('show', window.scrollY > 400); });
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const closeNav = document.getElementById('closeNav');
+
+  // OPEN MENU
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+  });
+
+  // CLOSE MENU (FIXED)
+  closeNav.addEventListener('click', (e) => {
+    e.stopPropagation();   // 🔥 prevents issues
+    mobileNav.classList.remove('open');
+  });
+
+  // CLOSE ON LINK CLICK
+  window.closeMobileNav = function () {
+    mobileNav.classList.remove('open');
+  };
+
+  // BONUS: CLICK OUTSIDE TO CLOSE
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav) {
+      mobileNav.classList.remove('open');
+    }
+  });
+
+});
+  function closeMobileNav() { mobileNav.classList.remove('open'); }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up, .timeline-item').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 100) current = sec.getAttribute('id'); });
+    navLinks.forEach(link => { link.style.color = link.getAttribute('href') === '#' + current ? 'var(--teal)' : ''; });
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }, 1600);
+  });
+
+  document.querySelectorAll('.services-grid, .blog-grid, .edu-grid, .testimonials-grid').forEach(grid => {
+    grid.querySelectorAll('.fade-up').forEach((card, i) => { card.style.transitionDelay = (i * 0.1) + 's'; });
+  });
+</script>
+</body>
+</html>
