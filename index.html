@@ -7,6 +7,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ✅ EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // =====================================================================
+    // ✅ EMAILJS SETUP — Replace these 3 values with your EmailJS credentials
+    // STEP-BY-STEP SETUP (free, takes ~5 minutes):
+    //
+    // 1. Go to https://www.emailjs.com/ → Sign Up (free)
+    // 2. Click "Add New Service" → Choose Gmail → Connect your Gmail account
+    //    (saloni9762275151@gmail.com) → Copy the "Service ID"
+    // 3. Click "Email Templates" → Create New Template
+    //    In the template body, use these variables:
+    //      From: {{from_name}} ({{from_email}})
+    //      Phone: {{phone}}
+    //      Support Type: {{support_type}}
+    //      Message: {{message}}
+    //    → Save and copy the "Template ID"
+    // 4. Go to "Account" tab → copy your "Public Key"
+    // 5. Paste all three below and save this file.
+    // =====================================================================
+    const EMAILJS_SERVICE_ID  = "service_alvrk2j";   // e.g. "service_abc123"
+    const EMAILJS_TEMPLATE_ID = "template_kvzehgp";  // e.g. "template_xyz789"
+    const EMAILJS_PUBLIC_KEY  = "Bu1gFqn77veAC2aF1";   // e.g. "abc123XYZpublicKey"
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  </script>
+
   <style>
     :root {
       --navy: #0a2540;
@@ -374,11 +402,11 @@
       position: relative;
     }
     .hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* IMPORTANT */
-  object-position: center;
-}
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
     .about-img-placeholder { text-align: center; }
     .about-img-placeholder i { font-size: 5rem; color: var(--sage); opacity: 0.4; }
     .about-img-placeholder p { font-size: 0.8rem; color: var(--sage); margin-top: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
@@ -723,6 +751,7 @@
     .testimonial-role { font-size: 0.78rem; color: var(--text-light); }
     .stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; margin-top: 4px; }
 
+    /* ==================== CONTACT SECTION ==================== */
     #contact {
       padding: 100px 0;
       background: var(--navy);
@@ -771,9 +800,35 @@
       box-shadow: 0 0 0 3px rgba(26,140,160,0.2);
     }
     .form-textarea { resize: vertical; min-height: 130px; }
-    .form-success { display: none; text-align: center; padding: 20px; }
-    .form-success i { font-size: 2rem; color: var(--sage); }
-    .form-success p { color: rgba(255,255,255,0.8); margin-top: 12px; }
+
+    /* ✅ Form state styles */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px 20px;
+      animation: fadeInUp 0.5s ease;
+    }
+    .form-success i { font-size: 3rem; color: #4ade80; margin-bottom: 16px; display: block; }
+    .form-success h4 { color: #fff; font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+    .form-success p { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; }
+
+    .form-error-msg {
+      display: none;
+      background: rgba(239,68,68,0.15);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-top: 16px;
+      color: #fca5a5;
+      font-size: 0.85rem;
+      text-align: center;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     footer { background: #06182e; padding: 48px 0 28px; }
     .footer-inner {
@@ -976,26 +1031,23 @@
           </div>
         </div>
       </div>
-     <div class="hero-image-wrap">
-
-  <div class="hero-image-frame">
-    <img src="muskan.jpeg" class="hero-img" />
+      <div class="hero-image-wrap">
+        <div class="hero-image-frame">
+          <img src="muskan.jpeg" class="hero-img" />
+        </div>
+        <div class="hero-float-card card-1">
+          <div class="float-card-icon"><i class="fas fa-heart-pulse"></i></div>
+          <div class="float-card-label">Specialty</div>
+          <div class="float-card-value">Wellness</div>
+        </div>
+        <div class="hero-float-card card-2">
+          <div class="float-card-icon"><i class="fas fa-star"></i></div>
+          <div class="float-card-label">Rating</div>
+          <div class="float-card-value">4.9 / 5</div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- OUTSIDE CARDS -->
-  <div class="hero-float-card card-1">
-    <div class="float-card-icon"><i class="fas fa-heart-pulse"></i></div>
-    <div class="float-card-label">Specialty</div>
-    <div class="float-card-value">Wellness</div>
-  </div>
-
-  <div class="hero-float-card card-2">
-    <div class="float-card-icon"><i class="fas fa-star"></i></div>
-    <div class="float-card-label">Rating</div>
-    <div class="float-card-value">4.9 / 5</div>
-  </div>
-
-</div>
 </section>
 
 <!-- ABOUT -->
@@ -1006,7 +1058,7 @@
         <div class="about-img-wrap">
           <div class="about-img-placeholder">
             <i class="fas fa-user-nurse"></i>
-            <p>Professional Photo</p>
+            <img src="doctor.jpeg" alt="">
           </div>
         </div>
         <div class="about-accent-box">
@@ -1084,7 +1136,7 @@
           <div class="timeline-period"><i class="fas fa-calendar"></i> 2024 – 2025</div>
           <h3 class="timeline-role">Health & Wellness Assistant</h3>
           <div class="timeline-org"><i class="fas fa-hospital"></i> Hetauda Hospitals, Hetauda</div>
-          <p class="timeline-desc">Assisted doctors and nursing staff in daily clinical workflows. Led patient wellness orientation programmes for newly admitted patients. Introduced a structured follow-up tracking system that improved appointment adherence by 22%. Provided counselling support for patients managing who has met with an accident .</p>
+          <p class="timeline-desc">Assisted doctors and nursing staff in daily clinical workflows. Led patient wellness orientation programmes for newly admitted patients. Introduced a structured follow-up tracking system that improved appointment adherence by 22%. Provided counselling support for patients managing who has met with an accident.</p>
           <div class="timeline-tags">
             <span class="tag">Chronic Disease Support</span>
             <span class="tag">Follow-up Coordination</span>
@@ -1096,7 +1148,7 @@
         <div class="timeline-dot"></div>
         <div class="timeline-card">
           <div class="timeline-period"><i class="fas fa-calendar"></i> 2016 – 2018</div>
-          <h3 class="timeline-role">On the Job Training </h3>
+          <h3 class="timeline-role">On the Job Training</h3>
           <div class="timeline-org"><i class="fas fa-clinic-medical"></i> Nijgadh Hospital</div>
           <p class="timeline-desc">Conducted door-to-door health screenings and awareness drives in underserved communities. Facilitated immunisation campaigns, maternal health workshops, and nutrition counselling. Helped connect over 150 families to essential government health schemes and primary care services.</p>
           <div class="timeline-tags">
@@ -1136,11 +1188,10 @@
       <div class="edu-card fade-up">
         <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
         <h3 class="edu-degree">Diploma in Health Assistant Studies</h3>
-        <div class="edu-inst">Himal Institute of Health Science , Birgunj Nepal</div>
+        <div class="edu-inst">Himal Institute of Health Science, Birgunj Nepal</div>
         <div class="edu-year">2022-23 – 2025 · Distinction</div>
         <p class="edu-desc">Three-year diploma covering anatomy, physiology, community health, patient care techniques, health record management, and preventive healthcare practices. Completed with distinction.</p>
       </div>
-     
       <div class="edu-card fade-up">
         <div class="edu-icon"><i class="fas fa-certificate"></i></div>
         <h3 class="edu-degree">Certificate in Wellness Coaching</h3>
@@ -1154,11 +1205,8 @@
       <div class="cert-list">
         <div class="cert-chip"><i class="fas fa-award"></i> Certified Health Assistant (CHA)</div>
         <div class="cert-chip"><i class="fas fa-certificate"></i> Certified Health Worker (CHW) — WHO</div>
-        <!-- <div class="cert-chip"><i class="fas fa-trophy"></i> Best Trainee Award, ESI 2016</div> -->
         <div class="cert-chip"><i class="fas fa-medal"></i> Basic Life Support (BLS) Certified</div>
         <div class="cert-chip"><i class="fas fa-star"></i> Diabetes Care & Education Specialist</div>
-        <!-- <div class="cert-chip"><i class="fas fa-book-open"></i> Published: 2 Community Health Articles</div> -->
-        <!-- <div class="cert-chip"><i class="fas fa-chalkboard-teacher"></i> Speaker — 4 State Health Conferences</div> -->
         <div class="cert-chip"><i class="fas fa-handshake"></i> Member — Nepali Association of Health Workers</div>
       </div>
     </div>
@@ -1313,12 +1361,12 @@
     <div class="testimonials-grid">
       <div class="testimonial-card fade-up">
         <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">Saloni helped me to take care my fractured hand and leg in a way no one had ever done before. She had give the  good take care of me , and for the first time I felt confident managing my own health. Her patience and encouragement made all the difference.</p>
+        <p class="testimonial-text">Saloni helped me to take care my fractured hand and leg in a way no one had ever done before. She gave the best care, and for the first time I felt confident managing my own health. Her patience and encouragement made all the difference.</p>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar"><span>R</span></div>
+          <div class="testimonial-avatar"><span>M</span></div>
           <div>
             <div class="testimonial-name">Madhu Yadav</div>
-            <div class="testimonial-role">Client — Hand and Leg Fractured Support</div>
+            <div class="testimonial-role">Client — Hand and Leg Fracture Support</div>
             <div class="stars">★★★★★</div>
           </div>
         </div>
@@ -1327,7 +1375,7 @@
         <div class="testimonial-quote">"</div>
         <p class="testimonial-text">During my pregnancy I was anxious and confused about so many things. Saloni was always available to answer my questions, explain what to expect at each stage, and guide me to the right care. She felt like a trusted friend throughout the whole journey.</p>
         <div class="testimonial-footer">
-          <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--sage), #3d8a55);"><span>P</span></div>
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--sage), #3d8a55);"><span>C</span></div>
           <div>
             <div class="testimonial-name">Chandani</div>
             <div class="testimonial-role">Client — Maternal Health Support</div>
@@ -1342,7 +1390,7 @@
           <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--gold), #b08030);"><span>A</span></div>
           <div>
             <div class="testimonial-name">Amisha</div>
-            <div class="testimonial-role">Family —Health Support</div>
+            <div class="testimonial-role">Family — Post-Surgery Health Support</div>
             <div class="stars">★★★★★</div>
           </div>
         </div>
@@ -1397,38 +1445,50 @@
           </div>
         </div>
       </div>
+
+      <!-- ✅ CONTACT FORM with EmailJS -->
       <div class="contact-form-wrap">
         <form id="contactForm">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Full Name *</label>
-              <input type="text" class="form-input" placeholder="Your full name" required>
+              <input type="text" id="field_name" class="form-input" placeholder="Your full name" required>
             </div>
             <div class="form-group">
               <label class="form-label">Phone Number</label>
-              <input type="tel" class="form-input" placeholder="+977 XXXXX XXXXX">
+              <input type="tel" id="field_phone" class="form-input" placeholder="+977 XXXXX XXXXX">
             </div>
           </div>
           <div class="form-group">
             <label class="form-label">Email Address *</label>
-            <input type="email" class="form-input" placeholder="your@gmail.com" required>
+            <input type="email" id="field_email" class="form-input" placeholder="your@gmail.com" required>
           </div>
           <div class="form-group">
             <label class="form-label">Type of Support Needed</label>
-            <input type="text" class="form-input" placeholder="e.g. Wellness coaching, Diabetes support, Home visit...">
+            <input type="text" id="field_support" class="form-input" placeholder="e.g. Wellness coaching, Diabetes support, Home visit...">
           </div>
           <div class="form-group">
             <label class="form-label">Your Message *</label>
-            <textarea class="form-textarea" placeholder="Please describe your health concern or what you'd like support with..." required></textarea>
+            <textarea id="field_message" class="form-textarea" placeholder="Please describe your health concern or what you'd like support with..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-teal" style="width:100%; justify-content:center; padding:16px;">
+
+          <button type="submit" class="btn btn-teal" id="submitBtn" style="width:100%; justify-content:center; padding:16px;">
             <i class="fas fa-paper-plane"></i> Send Message
           </button>
-          <div class="form-success" id="formSuccess">
-            <i class="fas fa-circle-check"></i>
-            <p>Thank you! Your message has been sent. Saloni's team will reach out within 24 hours.</p>
+
+          <!-- ✅ Error message -->
+          <div class="form-error-msg" id="formError">
+            <i class="fas fa-triangle-exclamation"></i>
+            Something went wrong. Please try again or email directly at saloni9762275151@gmail.com
           </div>
         </form>
+
+        <!-- ✅ Success state (shown after send) -->
+        <div class="form-success" id="formSuccess">
+          <i class="fas fa-circle-check"></i>
+          <h4>Message Sent Successfully!</h4>
+          <p>Thank you for reaching out. Saloni will respond to your message within 24 hours.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1485,9 +1545,11 @@
 </footer>
 
 <script>
+  // ── Navbar scroll ──
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
 
+  // ── Progress bar ──
   const progressBar = document.getElementById('progress-bar');
   window.addEventListener('scroll', () => {
     const scrollTop = document.documentElement.scrollTop;
@@ -1495,46 +1557,28 @@
     progressBar.style.width = (scrollTop / scrollHeight * 100) + '%';
   });
 
+  // ── Back to top ──
   const backTop = document.getElementById('back-top');
   window.addEventListener('scroll', () => { backTop.classList.toggle('show', window.scrollY > 400); });
 
+  // ── Mobile nav ──
   document.addEventListener("DOMContentLoaded", () => {
-
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  const closeNav = document.getElementById('closeNav');
-
-  // OPEN MENU
-  hamburger.addEventListener('click', () => {
-    mobileNav.classList.add('open');
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeNav  = document.getElementById('closeNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+    closeNav.addEventListener('click', (e) => { e.stopPropagation(); mobileNav.classList.remove('open'); });
+    mobileNav.addEventListener('click', (e) => { if (e.target === mobileNav) mobileNav.classList.remove('open'); });
   });
+  function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
-  // CLOSE MENU (FIXED)
-  closeNav.addEventListener('click', (e) => {
-    e.stopPropagation();   // 🔥 prevents issues
-    mobileNav.classList.remove('open');
-  });
-
-  // CLOSE ON LINK CLICK
-  window.closeMobileNav = function () {
-    mobileNav.classList.remove('open');
-  };
-
-  // BONUS: CLICK OUTSIDE TO CLOSE
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) {
-      mobileNav.classList.remove('open');
-    }
-  });
-
-});
-  function closeMobileNav() { mobileNav.classList.remove('open'); }
-
+  // ── Scroll animations ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up, .timeline-item').forEach(el => observer.observe(el));
 
+  // ── Active nav link highlight ──
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
@@ -1543,19 +1587,53 @@
     navLinks.forEach(link => { link.style.color = link.getAttribute('href') === '#' + current ? 'var(--teal)' : ''; });
   });
 
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('button[type="submit"]');
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    }, 1600);
-  });
-
+  // ── Staggered card animations ──
   document.querySelectorAll('.services-grid, .blog-grid, .edu-grid, .testimonials-grid').forEach(grid => {
     grid.querySelectorAll('.fade-up').forEach((card, i) => { card.style.transitionDelay = (i * 0.1) + 's'; });
+  });
+
+  // ================================================================
+  // ✅ EMAILJS FORM SUBMISSION
+  // Sends form data directly to saloni9762275151@gmail.com via EmailJS
+  // No database, no server — pure browser-to-Gmail delivery
+  // ================================================================
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const btn       = document.getElementById('submitBtn');
+    const errorDiv  = document.getElementById('formError');
+    const successDiv = document.getElementById('formSuccess');
+
+    // Collect field values
+    const templateParams = {
+      from_name    : document.getElementById('field_name').value.trim(),
+      from_email   : document.getElementById('field_email').value.trim(),
+      phone        : document.getElementById('field_phone').value.trim() || 'Not provided',
+      support_type : document.getElementById('field_support').value.trim() || 'Not specified',
+      message      : document.getElementById('field_message').value.trim(),
+      to_name      : 'Saloni Yadav',
+      reply_to     : document.getElementById('field_email').value.trim(),
+    };
+
+    // Show loading state
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled  = true;
+    errorDiv.style.display = 'none';
+
+    // Send via EmailJS
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      .then(() => {
+        // ✅ Success
+        document.getElementById('contactForm').style.display = 'none';
+        successDiv.style.display = 'block';
+      })
+      .catch((err) => {
+        // ❌ Error
+        console.error('EmailJS error:', err);
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        btn.disabled  = false;
+        errorDiv.style.display = 'block';
+      });
   });
 </script>
 </body>
